@@ -1,85 +1,18 @@
 {
-  "name": "maintainerswanted.com",
-  "version": "2.4.2",
+  "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "if-env NODE_ENV=production && node ./bin/www || nodemon ./bin/www",
-    "dev": "concurrently \"yarn start\" \"cd client && yarn start\"",
-    "heroku-postbuild": "cd client && yarn install --network-timeout 1000000 && yarn run build",
-    "heroku-prebuild": "yarn config delete proxy && npm config rm https-proxy && npm config rm proxy && yarn install --production=false --network-timeout 1000000",
-    "bump": "yarn version --patch",
-    "expose-web": "ngrok http 5000",
-    "lint": "eslint --fix . && cd client/ && yarn lint"
-  },
-  "homepage": "https://maintainerswanted.com",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/flxwu/maintainerswanted.com.git"
-  },
-  "engines": {
-    "node": "8.11.4",
-    "yarn": "1.9.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "standard"
-    ],
-    "rules": {
-      "indent": [
-        "error",
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "linebreak-style": [
-        "error",
-        "unix"
-      ],
-      "quotes": [
-        "error",
-        "single"
-      ],
-      "semi": [
-        "error",
-        "always"
-      ],
-      "no-console": 0
-    }
-  },
-  "eslintIgnore": [
-    "client/*",
-    "node_modules/*"
-  ],
-  "dependencies": {
-    "@octokit/rest": "^15.10.0",
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "chalk": "^2.4.1",
-    "connect-session-firebase": "^5.13.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "express-session": "^1.15.6",
-    "firebase": "^5.4.1",
-    "if-env": "^1.0.4",
-    "morgan": "~1.9.0"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1",
-    "eslint": "^4.9.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^4.0.0",
-    "husky": "^1.0.0-rc.13",
-    "ngrok": "^3.0.1",
-    "nodemon": "^1.18.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn lint"
-    }
+    "@nuxt/devtools": "latest",
+    "nuxt": "^3.8.0",
+    "vue": "^3.3.7",
+    "vue-router": "^4.2.5"
   }
 }
